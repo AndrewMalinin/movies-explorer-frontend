@@ -1,0 +1,67 @@
+@import '../../../styles/colors.scss';
+
+.nav-tab {
+    &__links {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__link-wrapper {
+        padding: 10px 0;
+        background-color: $deep3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__link {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+        color: $mainTextColor;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .nav-tab {
+        &__links{
+            gap: 10px
+        }
+
+        &__link-wrapper {
+            min-width: 96px;
+            border-radius: 10px;
+        }
+
+        &__link {
+            font-size: 12px;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .nav-tab {
+        &__links{
+            gap: 6px
+        }
+
+        &__link-wrapper {
+            min-width: 82px;
+            border-radius: 6px;
+        }
+
+        &__link {
+            font-size: 10px;
+        }
+        
+    }
+}
