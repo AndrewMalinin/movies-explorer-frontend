@@ -1,0 +1,101 @@
+@import '../../../styles/variables.scss';
+
+.portfolio {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+    &__title {
+        color: $softTextColor;
+        font-family: $mainFont;
+        font-style: normal;
+        font-weight: 400;
+        margin: 0;
+    }
+
+    &__links {
+        margin: 0;
+        list-style: none;
+        padding: 0;
+    }
+
+    &__link {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        text-decoration: none;
+        color: $mainTextColor;
+        transition: opacity 300ms ease;
+        &:hover {
+            opacity: 0.7;
+        }
+        padding: 20px 0;
+        border-bottom: 1px solid #E6E6E6;
+    }
+
+    &__link-caption,&__link-symbol {
+        font-style: normal;
+        font-weight: 400;
+        margin: 0;
+    }
+}
+
+
+@media screen and (min-width: 1280px) {
+    .portfolio {
+        padding: 0 70px 125px 70px;
+        &__title {
+            font-size: 18px;
+            line-height: 20px;  
+        }
+    
+        &__content {
+            padding: 50px 0 0 0;
+        }
+    
+        &__link-caption,&__link-symbol {
+            font-size: 30px;
+            line-height: 50px;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .portfolio {
+        padding: 0 50px 90px 50px;
+
+        &__title {
+            font-size: 18px;
+            line-height: 20px;  
+        }
+    
+        &__content {
+            padding: 50px 0 0 0;
+        }
+    
+        &__link-caption,&__link-symbol {
+            font-size: 28px;
+            line-height: 50px;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .portfolio {
+        padding: 0 14px 70px 14px;
+    
+        &__title {
+            font-size: 14px;
+            line-height: 20px;  
+        }
+    
+        &__content {
+            padding: 40px 0 0 0;
+        }
+
+        &__link-caption,&__link-symbol {
+            font-size: 18px;
+            line-height: 28px;
+        }
+    }
+}

@@ -1,0 +1,217 @@
+@import '../../../styles/variables.scss';
+
+.about-me {
+    background-color: $deep1;
+    width: 100%;
+    box-sizing: border-box;
+    &__header {
+        border-bottom: solid 1px #DADADA;
+    }
+
+    &__title {
+        font-family: $mainFont;
+        font-style: normal;
+        font-weight: 400;
+        color: $mainTextColor;
+        margin: 0;
+    }
+
+    &__content { 
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 40px;
+    }
+
+    &__description-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__description {
+        font-family: $mainFont;
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    &__name {
+        color: $mainTextColor;
+        font-style: normal;
+        font-weight: 400;
+        margin: 0;
+    }
+
+    &__life-status {
+        color: $mainTextColor;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    &__biography {
+        color: $mainTextColor;
+        font-style: normal;
+        font-weight: 400;
+        max-width: 600px;
+        margin: 0;
+    }
+
+    &__links {
+        list-style: none;
+        margin: 40px 0 0 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__link {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+        color: $mainTextColor;
+        text-decoration: none;
+        transition: opacity 300ms ease;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    &__photo {
+        border-radius: 10px;
+    }
+}
+
+
+@media screen and (min-width: 1280px) {
+    .about-me {
+        padding: 110px 70px 100px 70px;
+
+        &__title {
+            font-size: 22px;
+            line-height: 27px;
+            margin-bottom: 23px;
+        }
+    
+        &__content { 
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding-top: 66px;
+        }
+    
+        &__name {
+            font-size: 50px;
+            line-height: 58px;
+        }
+    
+        &__life-status {
+            margin-top: 18px;
+            font-size: 18px;
+            line-height: 20px;
+        }
+    
+        &__biography {
+            font-size: 14px;
+            line-height: 22px;
+            margin-top: 26px;
+        }
+    
+        &__links {
+            gap: 20px;
+        }
+
+        &__photo {
+            max-width: 270px;
+        }
+    }
+}
+
+
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .about-me {
+        padding: 90px 50px;
+
+        &__title {
+            font-size: 22px;
+            line-height: 27px;
+            margin-bottom: 23px;
+        }
+    
+        &__content { 
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding-top: 66px;
+        }
+    
+        &__name {
+            font-size: 40px;
+            line-height: 40px;
+        }
+    
+        &__life-status {
+            margin-top: 16px;
+            font-size: 12px;
+            line-height: 18px;
+        }
+    
+        &__biography {
+            font-size: 12px;
+            line-height: 18px;
+            margin-top: 20px;
+        }
+    
+        &__links {
+            gap: 20px;
+        }
+
+        &__photo {
+            max-width: 255px;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .about-me {
+        padding: 70px 14px;
+
+        &__title {
+            font-size: 18px;
+            line-height: 22px;
+            margin-bottom: 28px;
+        }
+    
+        &__content { 
+            display: flex;
+            flex-direction: column-reverse;
+            padding-top: 60px;
+        }
+    
+        &__name {
+            font-size: 30px;
+            line-height: 36px;
+        }
+    
+        &__life-status {
+            margin-top: 20px;
+            font-size: 11px;
+            line-height: 16px;
+        }
+    
+        &__biography {
+            font-size: 11px;
+            line-height: 16px;
+            margin-top: 20px;
+        }
+    
+        &__links {
+            gap: 26px;
+        }
+
+        &__photo {
+            width: 100%;
+        }
+    }
+}

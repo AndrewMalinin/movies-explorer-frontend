@@ -1,4 +1,4 @@
-@import '../../styles/colors.scss';
+@import '../../styles/variables.scss';
 
 .main {
     margin: 0 auto;
@@ -12,11 +12,11 @@
 
 }
 
-@media screen and (min-width: 769px) and (max-width: 1279px) {
+@media screen and (min-width: 768px) and (max-width: 1279px) {
 
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
 
 }
 

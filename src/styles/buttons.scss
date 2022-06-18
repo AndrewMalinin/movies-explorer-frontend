@@ -1,0 +1,51 @@
+@import './variables.scss';
+
+.button {
+    background-color: transparent;
+    border: none;
+    font-family: $mainFont;
+    font-style: normal;
+    font-weight: 500;
+    color: $mainTextColor;
+    &_style_accent {
+        background-color: $firstAccentColor;
+        border-radius: 3px;
+        color: $invertedTextColor;
+    }
+    transition: opacity 300ms ease;
+    &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+
+}
+
+@media screen and (min-width: 1280px) {
+    .button {
+        font-size: 12px;
+        line-height: 16px;
+        &_style_accent {
+            padding: 8px 20px;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .button {
+        font-size: 12px;
+        line-height: 16px;
+        &_style_accent {
+            padding: 8px 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .button {
+        font-size: 10px;
+        line-height: 16px;
+        &_style_accent {
+            padding: 5px 12px;
+        }
+    }
+}

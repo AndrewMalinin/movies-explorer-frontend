@@ -1,0 +1,66 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/buttons.scss';
+
+.header {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    &__buttons-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__button {
+
+    }
+}
+
+.logo {
+    &_place_header {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+
+@media screen and (min-width: 1280px) {
+    .header {
+        padding: 21px 70px;
+        &__buttons-container {
+            gap:30px
+        }
+
+        &__button {
+            
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .header {
+        padding: 18px 30px;
+        &__buttons-container {
+            gap:30px
+        }
+    
+        &__button {
+            
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .header {
+        padding: 18px 14px;
+        &__buttons-container {
+            gap:14px
+        }
+    
+        &__button {
+            
+        }
+    }
+}

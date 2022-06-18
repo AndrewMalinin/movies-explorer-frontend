@@ -1,0 +1,247 @@
+@import '../../../styles/variables.scss';
+
+.about-project {
+    background-color: $deep1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+
+    &__header {
+        border-bottom: solid 1px #DADADA;
+    }
+
+    &__title {
+        font-family: $mainFont;
+        font-style: normal;
+        font-weight: 400;
+        color: $mainTextColor;
+        margin: 0;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__descriptions {
+        display: flex;
+    }
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    font-family: $mainFont;
+    color: $mainTextColor;
+    width: 100%;
+
+    &__title {
+        font-style: normal;
+        font-weight: 400;
+        margin: 0;
+    }
+}
+
+.track {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    &__part {
+        display: flex;
+        flex-direction: column;
+        color: $mainTextColor;
+        min-width: 100px;
+        &_color_accent {
+            .track__part-title {
+                background-color: $firstAccentColor;
+                color: $invertedTextColor;
+            }
+        }
+        &_width_one-week {
+            flex-basis: 20%;
+        }
+        &_width_four-week {
+            flex-basis: 80%;
+        }
+    }
+
+    &__part-title {
+        background-color: $deep3;
+        font-family: $mainFont;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        text-align: center;
+        color: $mainTextColor;
+        margin: 0;
+        padding: 9px 0;
+    }
+
+    &__part-caption {
+        font-style: normal;
+        font-weight: 500;
+        text-align: center;
+        color: $softTextColor;
+        margin: 14px 0 0 0;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .about-project {
+        padding: 110px 70px;
+
+        &__title {
+            font-size: 22px;
+            line-height: 27px;
+            margin-bottom: 23px;
+        }
+
+        &__content {
+            padding-top: 70px;
+        }
+
+        &__descriptions {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        &__track {
+            margin-top: 110px;
+        }
+    }
+
+    .description {
+        &__title {
+            font-size: 20px;
+            line-height: 24px;
+        }
+
+        &__paragraph {
+            margin: 26px 0 0 0;
+            font-size: 14px;
+            line-height: 20px;
+        }
+    }
+
+    .track {
+        &__part-title {
+            font-size: 14px;
+            line-height: 17px;
+            padding: 9px 0;
+        }
+
+        &__part-caption {
+            margin: 14px 0 0 0;
+            font-size: 14px;
+            line-height: 17px;
+        }
+    }
+}
+
+
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .about-project {
+        padding: 90px 50px;
+        &__title {
+            font-size: 22px;
+            line-height: 27px;
+            margin-bottom: 23px;
+        }
+        
+        &__content {
+            padding-top: 70px;
+        }
+
+        &__descriptions {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        &__track {
+            margin-top: 93px;
+        }
+    }
+
+    .description {
+        &__title {
+            font-size: 20px;
+            line-height: 24px;
+        }
+
+        &__paragraph {
+            margin: 22px 0 0 0;
+            font-size: 12px;
+            line-height: 18px;
+        }
+    }
+
+    .track {
+        &__part-title {
+            font-size: 14px;
+            line-height: 17px;
+            padding: 9px 0;
+        }
+
+        &__part-caption {
+            margin: 14px 0 0 0;
+            font-size: 14px;
+            line-height: 17px;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .about-project {
+        padding: 70px 18px;
+        &__title {
+            font-size: 18px;
+            line-height: 22px;
+            margin-bottom: 28px;
+        }
+
+        &__content {
+            padding-top: 60px;
+        }
+
+        &__descriptions {
+            flex-direction: column;
+            gap: 56px;
+        }
+
+        &__track {
+            margin-top: 60px;
+        }
+    }
+    
+    .description {
+        &__title {
+            font-size: 18px;
+            line-height: 22px;
+        }
+
+        &__paragraph {
+            margin: 16px 0 0 0;
+            font-size: 11px;
+            line-height: 16px;
+        }
+    }
+
+    .track {
+        &__part-title {
+            font-size: 11px;
+            line-height: 13px;
+            padding: 11px 0;
+        }
+
+        &__part-caption {
+            margin: 10px 0 0 0;
+            font-size: 11px;
+            line-height: 13px;
+        }
+    }
+}

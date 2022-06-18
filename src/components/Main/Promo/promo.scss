@@ -1,20 +1,22 @@
-@import '../../../styles/colors.scss';
+@import '../../../styles/variables.scss';
 
 .promo {
+    box-sizing: border-box;
+    width: 100%;
     &__background {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         background-color: $deep2;
         border-radius: 10px;
+        width: 100%;
     }
 
     &__title {
-        font-family: 'Inter';
+        font-family: $mainFont;
         font-style: normal;
         text-align: center;
         font-weight: 400;
-        letter-spacing: -0.04em;
         color: $mainTextColor;
     }
 
@@ -22,8 +24,8 @@
 
 @media screen and (min-width: 1280px) {
     .promo {
+        padding: 20px 40px 0 40px;
         &__background {
-            margin: 20px 40px 0 40px;
             min-height: 493px;
         }
     
@@ -41,8 +43,8 @@
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
     .promo {
+        padding: 20px 20px 0 20px;
         &__background {
-            margin: 20px 20px 0 20px;
             min-height: 834px;
         }
     
@@ -60,8 +62,8 @@
 
 @media screen and (max-width: 767px) {
     .promo {
+        padding: 14px 14px 0 14px;
         &__background {
-            margin: 14px 14px 0 14px;
             min-height: 586px;
         }
     
