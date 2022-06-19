@@ -113,15 +113,18 @@
         flex-direction: column;
 
         &__cover {
-            &:hover + .movies-card__buttons-container{
+            &:hover + .movies-card__buttons-container >  .movies-card__save-button {
                 opacity: 1;
             }
+        }
+
+        &__save-button {
+            opacity: 0;
         }
 
         &__buttons-container {
             top: 14px;
             right: 14px;
-            opacity: 0;
         }
         
         &__info {
