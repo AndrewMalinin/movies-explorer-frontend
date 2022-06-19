@@ -1,8 +1,27 @@
 @import './variables.scss';
 
-.button {
+%abstract-button {
     background-color: transparent;
+    transition: opacity 300ms ease;
     border: none;
+    &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+
+    &:active {
+        opacity: 1;
+        cursor: pointer;
+    }
+
+    &:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba($color: $mainTextColor, $alpha: 1.0);
+    }
+}
+
+.button {
+    @extend %abstract-button;
     font-family: $mainFont;
     font-style: normal;
     font-weight: 500;
@@ -12,12 +31,28 @@
         border-radius: 3px;
         color: $invertedTextColor;
     }
-    transition: opacity 300ms ease;
-    &:hover {
-        opacity: 0.8;
-        cursor: pointer;
+}
+
+.icon-button {
+    @extend %abstract-button;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__icon {
+        width: 22px;
+        height: 22px;
     }
 
+    &_style {
+        &_second-accent {
+            background-color: $secondAccentColor;
+        }
+
+        &_rounded {
+            border-radius: 48px;
+        }
+    }
 }
 
 @media screen and (min-width: 1280px) {
