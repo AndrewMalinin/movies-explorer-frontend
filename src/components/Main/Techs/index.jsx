@@ -4,7 +4,7 @@ import './techs.scss'
 
 export default function Techs() {
   return (
-    <section className="techs">
+    <section className="techs" id="Techs">
       <header className="techs__header">
           <h2 className="techs__title">
               Технологии

@@ -1,0 +1,86 @@
+@import '../../styles/variables.scss';
+@import '../../styles/buttons.scss';
+
+.not-found {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    &__description {
+        margin: 0 auto;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__status-code {
+        font-weight: 400;
+        color: $mainTextColor;
+        margin: 0;
+    }
+
+    &__caption {
+        font-weight: 400;
+        margin: 0;
+        color: $mainTextColor;
+    }
+
+    &__back-button {
+        border: none;
+        color: $secondAccentColor;
+    }
+
+    @media screen and (min-width: 1280px) {
+        &__description {
+            margin-top: 246px;
+            gap:5px;
+        }
+    
+        &__status-code {
+            font-size: 140px;
+            line-height: 169px;
+        }
+    
+        &__back-button {
+            margin-bottom: 60px;
+        }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        &__description {
+            margin-top: 408px;
+            gap:5px;
+        }
+    
+        &__status-code {
+            font-size: 140px;
+            line-height: 169px;
+        }
+    
+        &__caption {
+            
+        }
+    
+        &__back-button {
+            margin-bottom: 222px;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        &__description {
+            margin-top: 329px;
+            gap:10px;
+        }
+    
+        &__status-code {
+            font-size: 80px;
+            line-height: 97px;
+        }
+    
+        &__back-button {
+
+            margin-bottom: 30px;
+        }
+    }
+}

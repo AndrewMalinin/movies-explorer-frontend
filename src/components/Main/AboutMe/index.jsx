@@ -6,7 +6,7 @@ import studentPhoto from '../../../images/student.jpg'
 
 export default function AboutMe() {
   return (
-    <section className="about-me">
+    <section className="about-me" id="AboutMe">
         <header className="about-me__header">
             <h2 className="about-me__title">
                 Студент

@@ -3,7 +3,6 @@
 %abstract-button {
     background-color: transparent;
     transition: opacity 300ms ease;
-    border: none;
     &:hover {
         opacity: 0.8;
         cursor: pointer;
@@ -24,8 +23,6 @@
     @extend %abstract-button;
     font-family: $mainFont;
     font-style: normal;
-    font-weight: 500;
-    color: $mainTextColor;
     &_style_accent {
         background-color: $firstAccentColor;
         border-radius: 3px;
@@ -38,12 +35,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    &__icon {
-        width: 22px;
-        height: 22px;
-    }
-
+    border: none;
     &_style {
         &_second-accent {
             background-color: $secondAccentColor;

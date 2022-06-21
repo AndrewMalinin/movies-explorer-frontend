@@ -4,6 +4,7 @@ import ProtectedRoute from '../common/ProtectedRoute'
 import Login from '../Login'
 import Main from '../Main'
 import Movies from '../Movies'
+import NotFoundPage from '../NotFoundPage'
 import Profile from '../Profile'
 import Register from '../Register'
 import SavedMovies from '../SavedMovies'
@@ -13,7 +14,7 @@ export default function App() {
 
     return (
         <Routes>
-            <Route path="*" element={
+            <Route path="/" element={
                 <ProtectedRoute isLogged={isLogged}>
                     <Main/>
                 </ProtectedRoute>
@@ -44,6 +45,10 @@ export default function App() {
 
             <Route path="/signin" element={
                 <Login/>
+            }/>
+
+            <Route path="*" element={
+                <NotFoundPage />
             }/>
 
     </Routes>

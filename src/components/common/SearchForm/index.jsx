@@ -17,7 +17,7 @@ export default function SearchForm() {
             <form action="#" className="search-form__form" onSubmit={handleFormSubmit}>
                 <div className="search-form__input-container">
                     <input type="text" className="search-form__input" placeholder='Фильм'/>
-                    <button className="search-form__submit-button icon-button icon-button_style_second-accent icon-button_style_rounded">
+                    <button type="submit" className="search-form__submit-button icon-button icon-button_style_second-accent icon-button_style_rounded">
                         <SearchIcon className='icon-button__icon'/>
                     </button>
                 </div>

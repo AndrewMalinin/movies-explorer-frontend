@@ -8,59 +8,56 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin: 0 auto;
+    max-width: 1280px;
     &__buttons-container {
         display: flex;
         flex-direction: row;
     }
 
-    &__button {
+    &__main-link {
+        width: 38px;
+        height: 38px;
+    }
 
+    &__button {
+        border: none;
+        color: $mainTextColor;
     }
 }
 
 .logo {
     &_place_header {
-        width: 38px;
-        height: 38px;
+        width: 100%;
+        height: 100%;
     }
 }
 
 
 @media screen and (min-width: 1280px) {
     .header {
-        padding: 21px 70px;
+        padding: 18px 70px;
         &__buttons-container {
             gap:30px
         }
 
-        &__button {
-            
-        }
     }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
     .header {
-        padding: 18px 30px;
+        padding: 14px 30px;
         &__buttons-container {
             gap:30px
-        }
-    
-        &__button {
-            
         }
     }
 }
 
 @media screen and (max-width: 767px) {
     .header {
-        padding: 18px 14px;
+        padding: 14px 14px;
         &__buttons-container {
             gap:14px
-        }
-    
-        &__button {
-            
         }
     }
 }

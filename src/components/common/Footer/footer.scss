@@ -7,6 +7,8 @@
     align-items: center;
     width: 100%;
     box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1280px;
     
     &__sponsor {
         color: $softTextColor;

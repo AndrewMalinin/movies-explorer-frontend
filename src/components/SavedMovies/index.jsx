@@ -4,13 +4,13 @@ import Footer from '../common/Footer'
 import SearchForm from '../common/SearchForm'
 import MoviesCardList from '../common/MoviesCardList'
 
-import './movies.scss'
+import './savedMovies.scss'
 
-export default function Movies() {
+export default function SavedMovies() {
   return (
     <>
       <Header/>
-      <main className='movies'>
+      <main className='saved-movies'>
         <SearchForm/>
         <MoviesCardList/>
       </main>

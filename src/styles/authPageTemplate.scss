@@ -1,0 +1,120 @@
+@import './variables.scss';
+
+@mixin auth-page-template {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1280px;
+    height: 100vh;
+    margin: 0 auto;
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        max-width: 396px;
+        width: 100%;
+    }
+
+    &__content {
+        flex-grow: 1;
+        max-width: 396px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__title {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 29px;
+        color: $mainTextColor;
+        margin: 0;
+    }
+
+    &__logo {
+        width: 38px;
+        height: 38px;
+    }
+
+    &__tip {
+        font-weight: 400;
+        display: flex;
+        justify-content: center;
+        color: $softTextColor;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: $secondAccentColor;
+        transition: opacity 300ms ease;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    @media screen and (min-width: 1280px) {
+        &__header {
+            padding: 70px 0 40px 0;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        &__content {
+            padding-bottom: 70px;
+        }
+
+        &__tip {
+            margin-top: 16px;
+            font-size: 14px;
+            line-height: 17px;
+        }
+
+        &__link {
+            margin-left: 6px;
+        }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        &__header {
+            padding: 232px 0 40px 0;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        &__content {
+            padding-bottom: 232px;
+        }
+
+        &__tip {
+            margin-top: 16px;
+            font-size: 14px;
+            line-height: 17px;
+        }
+
+        &__link {
+            margin-left: 6px;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        &__header {
+            padding: 56px 0 80px 0;
+            gap: 50px;
+            align-items: center;
+        }
+
+        &__content {
+            padding: 0 30px 30px 30px;
+            box-sizing: border-box;
+        }
+
+        &__tip {
+            margin-top: 14px;
+            font-size: 12px;
+            line-height: 15px;
+        }
+
+        &__link {
+            margin-left: 7px;
+        }
+    }
+}
