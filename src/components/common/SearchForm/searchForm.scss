@@ -24,13 +24,19 @@
         
         &:focus {
             outline: none;
+            &::-webkit-input-placeholder {
+                color: transparent;
+            }
+            &::-moz-placeholder {
+                color: transparent;
+            }
         }
 
         &::-webkit-input-placeholder {
             color: $softTextColor;
         }
 
-        &:-moz-placeholder {
+        &::-moz-placeholder {
             color: $softTextColor;
         }
 

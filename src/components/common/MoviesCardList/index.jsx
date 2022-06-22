@@ -20,9 +20,13 @@ export default function MoviesCardList() {
                   />)
             })}
         </div>
+
         <div className="movies-card-list__more">
+        {location.pathname === '/movies' &&
             <button className="button movies-card-list__more-button">Ещё</button>
+          }
         </div>
+
     </section>
   )
 }

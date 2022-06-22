@@ -13,19 +13,19 @@ export default function Portfolio() {
         <div className="portfolio__content">
             <ul className="portfolio__links">
               <li className="portfolio__link-wrapper">
-                <a href="/" className="portfolio__link">
+                <a href="https://github.com/AndrewMalinin/how-to-learn" target='_blank' rel="noreferrer" className="portfolio__link">
                   <p className="portfolio__link-caption">Статичный сайт</p>
                   <p className="portfolio__link-symbol">↗</p>
                 </a>
               </li>
               <li className="portfolio__link-wrapper">
-                <a href="/" className="portfolio__link">
+                <a href="https://andrewmalinin.github.io/russian-travel/index.html" target='_blank' rel="noreferrer" className="portfolio__link">
                   <p className="portfolio__link-caption">Адаптивный сайт</p>
                   <p className="portfolio__link-symbol">↗</p>
                 </a>
               </li>
               <li className="portfolio__link-wrapper">
-                <a href="/" className="portfolio__link">
+                <a href="https://github.com/AndrewMalinin/react-mesto-api-full" target='_blank' rel="noreferrer" className="portfolio__link">
                   <p className="portfolio__link-caption">Одностраничное приложение</p>
                   <p className="portfolio__link-symbol">↗</p>
                 </a>
