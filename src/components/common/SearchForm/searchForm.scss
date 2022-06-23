@@ -1,0 +1,128 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/buttons.scss';
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+
+    &__input-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #424242;
+    }
+
+    &__input {
+        background-color: transparent;
+        border: none;
+        color: $mainTextColor;
+        font-family: $mainFont;
+        font-style: normal;
+        font-weight: 500;
+        width: 100%;
+        padding-left: 10px;     // Для создания отступов при фокусировке
+        margin: 0 10px 0 -10px; // 
+        
+        &:focus {
+            outline: none;
+            &::-webkit-input-placeholder {
+                color: transparent;
+            }
+            &::-moz-placeholder {
+                color: transparent;
+            }
+        }
+
+        &:focus-visible {
+            box-shadow: 0 0 0 2px rgba($color: $mainTextColor, $alpha: .3);
+            border-radius: 48px;
+        }
+
+        &::-webkit-input-placeholder {
+            color: $softTextColor;
+        }
+
+        &::-moz-placeholder {
+            color: $softTextColor;
+        }
+
+    }
+
+    &__submit-button {
+        min-width: 80px;
+        padding: 6px 0;
+        border: none;
+        .icon-button__icon {
+            width: 22px;
+            height: 22px;
+        }
+        
+    }
+
+    &__filters {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .search-form {
+        padding: 70px 70px 47px 70px;
+
+        &__input-container {
+            padding-bottom: 13px;
+        }
+    
+        &__input {
+            font-size: 28px;
+            line-height: 34px;
+        }
+    
+        &__filters {
+            padding-top: 32px;
+            justify-content: flex-start;
+        }
+    }
+    
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .search-form {
+        padding: 80px 30px 60px 30px;
+    
+        &__input-container {
+            padding-bottom: 13px;
+        }
+    
+        &__input {
+            font-size: 28px;
+            line-height: 34px;
+        }
+    
+        &__filters {
+            padding-top: 29px;
+            justify-content: flex-end;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .search-form {
+        padding: 90px 14px 50px 14px;
+    
+        &__input-container {
+            padding-bottom: 9px;
+        }
+    
+        &__input {
+            font-size: 18px;
+            line-height: 22px;
+        }
+
+        &__filters {
+            padding-top: 40px;
+            justify-content: center;
+        }
+    }
+}

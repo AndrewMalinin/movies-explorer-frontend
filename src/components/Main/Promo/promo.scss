@@ -1,0 +1,84 @@
+@import '../../../styles/variables.scss';
+
+.promo {
+    box-sizing: border-box;
+    width: 100%;
+    &__background {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: $deep2;
+        border-radius: 10px;
+        width: 100%;
+    }
+
+    &__title {
+        font-family: $mainFont;
+        font-style: normal;
+        text-align: center;
+        font-weight: 400;
+        color: $mainTextColor;
+    }
+
+}
+
+@media screen and (min-width: 1280px) {
+    .promo {
+        padding: 20px 40px 0 40px;
+        &__background {
+            min-height: 493px;
+        }
+    
+        &__title {
+            margin: 160px 235px 0 160px;
+            font-size: 50px;
+            line-height: 116%;
+        }
+
+        &__nav-container {
+            margin: 0 auto 30px auto;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .promo {
+        padding: 20px 20px 0 20px;
+        &__background {
+            min-height: 834px;
+        }
+    
+        &__title {
+            margin: 350px 24px 0 24px;
+            font-size: 40px;
+            line-height: 130%;
+        }
+
+        &__nav-container {
+            margin: 0 auto 30px auto;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .promo {
+        padding: 14px 14px 0 14px;
+        &__background {
+            min-height: 586px;
+        }
+    
+        &__title {
+            margin: 220px 0 0 0;
+            margin-top: 220px;
+            font-size: 29px;
+            line-height: 128%;
+        }
+
+        &__nav-container {
+            margin: 0 auto 17px auto;
+        }
+    }
+}
+
+
+  

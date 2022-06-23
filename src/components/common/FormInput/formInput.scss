@@ -1,0 +1,65 @@
+@import '../../../styles/variables.scss';
+
+.form-input {
+    width: 100%;
+    display: flex;
+    &__input {
+        border: none;
+        color: $mainTextColor;
+        background-color: transparent;
+        &:focus {
+            outline: none;
+        }
+    }
+    &__caption {
+
+    }
+
+    &_horizontal {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        &:not(:last-child) {
+            padding-bottom: 17px;
+            border-bottom: 1px solid #424242;
+        }
+
+        &:not(:first-child) {
+            padding-top: 17px;
+        }
+        .form-input__input {
+            font-weight: 400;
+            font-size: 11px;
+            line-height: 13px;
+            text-align: right;
+        }
+
+        .form-input__caption {
+            font-weight: 400;
+            font-size: 11px;
+            line-height: 13px;
+            color: $mainTextColor;
+        }
+    }
+
+    &_vertical {
+        flex-direction: column;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #424242;
+
+        .form-input__input {
+            margin-top: 5px;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 17px;
+        }
+
+        .form-input__caption {
+            font-weight: 400;
+            font-size: 10px;
+            line-height: 12px;
+            color: $softTextColor;
+        }
+    }
+}

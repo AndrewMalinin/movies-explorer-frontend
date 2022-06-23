@@ -1,0 +1,176 @@
+@import '../../../styles/variables.scss';
+
+.techs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+    &__header {
+        border-bottom: solid 1px #DADADA;
+    }
+
+    &__title {
+        font-family: $mainFont;
+        color: $mainTextColor;
+        font-style: normal;
+        font-weight: 400;
+        margin: 0;
+    }
+    
+    &__description {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: $mainFont;
+        color: $mainTextColor;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__description-title {
+        margin: 0;
+        font-style: normal;
+        font-weight: 400;
+        text-align: center;
+    }
+
+    &__description-subtitle {
+        margin: 0;
+        font-style: normal;
+        font-weight: 400;
+        text-align: center;
+        max-width: 460px;
+    }
+
+    &__cards {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    &__card {
+        font-family: $mainFont;
+        font-style: normal;
+        color: $mainTextColor;
+        font-weight: 400;
+        text-align: center;
+        padding: 21px 0;
+        background-color: $deep3;
+        border-radius: 10px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .techs {
+        background-color: $deep2;
+        padding: 100px 70px;
+    
+        &__title {
+            font-size: 22px;
+            line-height: 27px;
+            margin-bottom: 23px;
+        }
+    
+        &__content {
+            padding-top: 90px;
+        }
+    
+        &__description-title {
+            font-size: 50px;
+            line-height: 58px;
+        }
+    
+        &__description-subtitle {
+            margin-top: 26px;
+        }
+        &__cards {
+            margin-top: 100px;
+        }
+    
+        &__card {
+            font-size: 14px;
+            line-height: 17px;
+            min-width: 90px;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .techs {
+        background-color: $deep2;
+        padding: 90px 50px;
+    
+        &__title {
+            font-size: 22px;
+            line-height: 27px;
+            margin-bottom: 23px;
+        }
+    
+        &__content {
+            padding-top: 80px;
+        }
+    
+        &__description-title {
+            font-size: 50px;
+            line-height: 58px;
+        }
+    
+        &__description-subtitle {
+            margin-top: 22px;
+        }
+
+        &__cards {
+            margin-top: 83px;
+        }
+    
+        &__card {
+            font-size: 12px;
+            line-height: 15px;
+            min-width: 84px;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .techs {
+        background-color: $deep1;
+        padding: 70px 18px;
+    
+        &__title {
+            font-size: 18px;
+            line-height: 22px;
+            margin-bottom: 28px;
+        }
+    
+        &__content {
+            padding-top: 60px;
+        }
+    
+        &__description-title {
+            font-size: 30px;
+            line-height: 36px;
+        }
+    
+        &__description-subtitle {
+            margin-top: 24px;
+        }
+
+        &__cards {
+            margin-top: 50px;
+        }
+    
+        &__card {
+            font-size: 12px;
+            line-height: 15px;
+            min-width: 84px;
+        }
+    }
+}

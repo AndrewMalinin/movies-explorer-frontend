@@ -1,0 +1,6 @@
+@import '../../styles/authPageTemplate.scss';
+@import '../../styles/authForm.scss';
+
+.login {
+    @include auth-page-template;
+}

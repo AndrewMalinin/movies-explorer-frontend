@@ -1,0 +1,77 @@
+@import './variables.scss';
+
+%abstract-button {
+    transition: opacity 300ms ease;
+    &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+
+    &:active {
+        opacity: 1;
+        cursor: pointer;
+    }
+
+    &:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba($color: $mainTextColor, $alpha: 1.0);
+    }
+}
+
+.button {
+    @extend %abstract-button;
+    font-family: $mainFont;
+    font-style: normal;
+    &_style_accent {
+        background-color: $firstAccentColor;
+        border-radius: 3px;
+        color: $invertedTextColor;
+    }
+}
+
+.icon-button {
+    @extend %abstract-button;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    &_style {
+        &_second-accent {
+            background-color: $secondAccentColor;
+        }
+
+        &_rounded {
+            border-radius: 48px;
+        }
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .button {
+        font-size: 12px;
+        line-height: 16px;
+        &_style_accent {
+            padding: 8px 20px;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .button {
+        font-size: 12px;
+        line-height: 16px;
+        &_style_accent {
+            padding: 8px 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .button {
+        font-size: 10px;
+        line-height: 16px;
+        &_style_accent {
+            padding: 5px 12px;
+        }
+    }
+}

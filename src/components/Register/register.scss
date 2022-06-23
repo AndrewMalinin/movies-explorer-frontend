@@ -1,0 +1,11 @@
+@import '../../styles/authPageTemplate.scss';
+@import '../../styles/authForm.scss';
+
+.register {
+    @include auth-page-template;
+}
+
+
+
+
+
