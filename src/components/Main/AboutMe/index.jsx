@@ -30,7 +30,7 @@ export default function AboutMe() {
                   <a href="https://www.facebook.com/" className="about-me__link">Facebook</a>
                 </li>
                 <li className="about-me__link-wrapper">
-                  <a href="https://github.com/" className="about-me__link">Github</a>
+                  <a href="https://github.com/AndrewMalinin" className="about-me__link">Github</a>
                 </li>
               </ul>
           </div>

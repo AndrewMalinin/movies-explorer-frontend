@@ -21,6 +21,8 @@
         font-style: normal;
         font-weight: 500;
         width: 100%;
+        padding-left: 10px;     // Для создания отступов при фокусировке
+        margin: 0 10px 0 -10px; // 
         
         &:focus {
             outline: none;
@@ -30,6 +32,11 @@
             &::-moz-placeholder {
                 color: transparent;
             }
+        }
+
+        &:focus-visible {
+            box-shadow: 0 0 0 2px rgba($color: $mainTextColor, $alpha: .3);
+            border-radius: 48px;
         }
 
         &::-webkit-input-placeholder {

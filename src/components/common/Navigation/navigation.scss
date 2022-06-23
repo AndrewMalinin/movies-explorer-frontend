@@ -4,6 +4,7 @@
 .navigation {
     display: flex;
     &__toggle-side-menu-button {
+        background-color: transparent;
         .icon-button__icon {
             width: 44px;
             height: 44px;

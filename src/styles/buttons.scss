@@ -1,7 +1,6 @@
 @import './variables.scss';
 
 %abstract-button {
-    background-color: transparent;
     transition: opacity 300ms ease;
     &:hover {
         opacity: 0.8;

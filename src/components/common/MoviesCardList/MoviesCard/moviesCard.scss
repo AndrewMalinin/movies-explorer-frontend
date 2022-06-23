@@ -36,12 +36,14 @@
         line-height: 9px;
         border-radius: 30px;
         padding: 6px 7px;
+        border: none;
         &:hover {
             opacity: 1;
         }
     }
 
     &__delete-button {
+        background-color: transparent;
         .icon-button__icon {
             width: 21px;
             height: 21px;
