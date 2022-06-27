@@ -6,7 +6,11 @@ import './header.scss';
 import { ReactComponent as Logo} from '../../../images/icons/logo.svg';
 import Navigation from '../Navigation';
 
-export default function Header(props) {
+// interface IHeaderProps {
+//   isLogged: boolean
+// }
+
+export default function Header(props/*:IHeaderProps*/) {
   const location = useLocation();
   const navigate = useNavigate();
   return (
@@ -14,10 +18,10 @@ export default function Header(props) {
       <a href="/" className="header__main-link">
         <Logo className="logo logo_place_header"/>
       </a>
-      {location.pathname === '/' ?
+      {(location.pathname === '/' && !props.isLogged) ?
         <div className="header__buttons-container">
           <button className="button header__button" onClick={()=>{navigate('/signup')}}>Регистрация</button>
-          <button className="button button_style_accent header__button" onClick={()=>{navigate('/signin')}}>Войти</button>        
+          <button className="button button_style_accent header__button" onClick={()=>{navigate('/signin')}}>Войти</button>
         </div>
       :
         <Navigation/>

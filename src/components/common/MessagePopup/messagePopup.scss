@@ -1,0 +1,86 @@
+@import '../../../styles/variables.scss';
+
+.popup {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  left:0;
+  top:0;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: height 0ms 200ms, opacity 200ms 0ms;
+
+  &_opened {
+    display: flex;
+    height: 100vh;
+    opacity: 1;
+    transition: height 0ms 0ms, opacity 200ms 0ms;
+  }
+
+  &__container {
+    position: relative;
+  }
+
+  &__close-button {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    transition: opacity 200ms ease;
+    &:hover {
+      cursor: pointer;
+      opacity: 0.6;
+    }
+  }
+
+  @media screen and (max-width:767px){
+    &__close-button {
+      width: 26px;
+      height: 26px;
+      right: 0;
+      top: calc(-26px - 13.62px);
+    }
+  }
+
+  @media screen and (min-width:768px){
+    &__close-button {
+      width: 30px;
+      height: 30px;
+      right: -33px;
+      top:-33px;
+    }
+  }
+}
+
+.message-block {
+  width: 300px;
+  min-height: 300px;
+  background: $deep3;
+  color: $mainTextColor;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  &__icon {
+    width: 120px;
+    height: 120px;
+  }
+
+  &__description {
+    font-family: $mainFont;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 26px;
+    text-align: center;
+    margin: 30px 0 0 0;
+  }
+}
