@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { ReactComponent as CheckMarkIcon} from '../../../../images/icons/saved.svg'
 import { ReactComponent as CrossIcon} from '../../../../images/icons/delete-card.svg'

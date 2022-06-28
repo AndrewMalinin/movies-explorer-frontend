@@ -3,7 +3,6 @@ import MoviesCard from './MoviesCard'
 import { useLocation } from "react-router-dom";
 
 import './moviesCardList.scss';
-import MoviesMessageBlock from './MoviesMessageBlock';
 import { useMemo } from 'react';
 
 // interface IMoviesCardListProps {

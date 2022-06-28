@@ -1,2 +1,2 @@
-export const mainApiURL =  'http://127.0.0.1:3000';
+export const mainApiURL =  'https://api.movies-explorer98.nomoredomains.xyz';
 export const moviesApiURL = 'https://api.nomoreparties.co';
