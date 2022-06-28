@@ -1,5 +1,4 @@
-import React from 'react'
-import { useRef } from 'react'
+import React from 'react';
 
 import './formInput.scss'
 
@@ -22,13 +21,13 @@ export default function FormInput(props/*:FormInputProps*/) {
   return (
     <article className={`form-input form-input_${props.direction}`}>
         <span className="form-input__caption">{props.caption}</span>
-        <input 
+        <input
           className="form-input__input"
           type={props.type}
           value={props.value}
           onChange={handleChange}
           name={props.name}
-          required={props.required && props.required} 
+          required={props.required && props.required}
           pattern={props.pattern && props.pattern}
           />
     </article>

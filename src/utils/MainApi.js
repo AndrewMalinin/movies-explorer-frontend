@@ -46,9 +46,6 @@ export class Api {
           }
         }
       })
-      .catch((e)=>{
-        return Promise.reject(new NetworkError(1000, 'Отсутствует связь с сервером, попробуйте выполнить запрос позднее'));
-      })
   }
 
   getUserInfo() {
@@ -66,7 +63,7 @@ export class Api {
       });
   }
 
-  sendSaveMovieRequest(movieData/*: IMovieDTO*/) {
+  sendSaveMovieRequest(movieData) {
     return this._sendRequest('/movies', 'POST', movieData);
   }
 

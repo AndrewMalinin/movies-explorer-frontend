@@ -11,7 +11,11 @@ import MessagePopup from '../common/MessagePopup'
 
 import './profile.scss'
 
-export default function Profile() {
+// interface IProfileProps {
+//   onLogout():void
+// }
+
+export default function Profile(props/*:IProfileProps*/) {
   const [context, setContext] = useContext(CurrentUserContext);
   const { values, handleChange, errors, isValid} = useFormWithValidation({name: context.name, email: context.email});
   const isEdited = useMemo(()=> values.name !== context.name || values.email !== context.email,[values, context]);
@@ -35,7 +39,7 @@ export default function Profile() {
         openMessagePopup('error', 'Данный E-mail уже используется.');
       }
       else {
-        openMessagePopup('error', err.statusCode);
+        openMessagePopup('error', err.message);
       }
     })
     .finally(()=>{
@@ -77,7 +81,7 @@ export default function Profile() {
         </form>
         <div className="profile__buttons">
           <button className="button profile__button" onClick={handleSaveProfile} disabled={!isEdited || !isValid}>{waitingResponse ? 'Сохранение...':'Сохранить'}</button>
-          <button className="button profile__button profile__button_style_warning">Выйти из аккаунта</button>
+          <button className="button profile__button profile__button_style_warning" onClick={props.onLogout}>Выйти из аккаунта</button>
         </div>
       </main>
       <MessagePopup popupControlObject={popupControlObject}/>

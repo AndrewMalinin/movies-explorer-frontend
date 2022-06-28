@@ -1,0 +1,41 @@
+@import '../../../../styles/variables.scss';
+
+.movies-message-block {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  &__description {
+    font-weight: 400;
+    color: $softTextColor;
+    font-size: 20px;
+    line-height: 24px;
+    padding: 50px 0 ;
+    margin: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    .movies-message-block {
+      &__description {
+        padding: 70px 70px;
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    .movies-message-block {
+      &__description {
+        padding: 70px 30px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .movies-message-block {
+      &__description {
+        padding: 40px 10px;
+      }
+    }
+  }
+
+}

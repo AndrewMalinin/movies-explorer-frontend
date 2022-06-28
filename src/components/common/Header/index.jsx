@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import './header.scss';
 
@@ -15,9 +15,9 @@ export default function Header(props/*:IHeaderProps*/) {
   const navigate = useNavigate();
   return (
     <header className="header">
-      <a href="/" className="header__main-link">
+      <Link to="/" className="header__main-link">
         <Logo className="logo logo_place_header"/>
-      </a>
+      </Link>
       {(location.pathname === '/' && !props.isLogged) ?
         <div className="header__buttons-container">
           <button className="button header__button" onClick={()=>{navigate('/signup')}}>Регистрация</button>

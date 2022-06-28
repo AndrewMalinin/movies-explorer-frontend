@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import Auth from '../../utils/Auth'
 import { api } from '../../utils/MainApi'
@@ -13,16 +13,14 @@ import Register from '../Register'
 import SavedMovies from '../SavedMovies'
 
 export default function App() {
-  const [isLogged, setIsLogged] = useState(false);
-  const [currentUser, setCurrentUser] = useState(defaultUserInfo);
   const navigate = useNavigate();
+  // Пока идет проверка токена isLogged = undefined
+  const [isLogged, setIsLogged] = useState(undefined);
+  const [currentUser, setCurrentUser] = useState(defaultUserInfo);
 
   useEffect(() => {
     handleAppStarted();
-    console.log('стартануло')
-    return(()=>{
-      console.log('вышло')
-    })
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleAppStarted = () => {
@@ -30,7 +28,6 @@ export default function App() {
     .then(()=>{
     })
     .catch(()=>{})
-
   }
 
 
@@ -75,6 +72,12 @@ export default function App() {
     navigate('/movies');
   }
 
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    setIsLogged(false);
+    navigate('/')
+  }
+
   return (
     <CurrentUserContext.Provider value={[currentUser, setCurrentUser]}>
       <Routes>
@@ -96,10 +99,9 @@ export default function App() {
 
           <Route path="/profile" element={
               <ProtectedRoute isLogged={isLogged}>
-                  <Profile/>
+                  <Profile onLogout={handleLogout}/>
               </ProtectedRoute>
           }/>
-
 
           <Route path="/signup" element={
               <Register onSignup={handleSignup}/>

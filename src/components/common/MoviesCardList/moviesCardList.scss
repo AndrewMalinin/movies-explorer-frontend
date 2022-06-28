@@ -2,73 +2,70 @@
 @import '../../../styles/buttons.scss';
 
 .movies-card-list {
-    &__content {
-        display: grid;
-        justify-content: center;
-    }
+  &__content {
+    display: grid;
+    justify-content: center;
+  }
 
-    &__more {
-        display: flex;
-        justify-content: center;
-        padding: 50px 0 80px 0;
-        min-height: 140px;
-        box-sizing: border-box;
-    }
+  &__more {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0 80px 0;
+    min-height: 140px;
+    box-sizing: border-box;
+  }
 
-    &__more-button {
-        font-weight: 400;
-        color: $mainTextColor;
-        background-color: transparent;
-        font-size: 12px;
-        line-height: 15px;
-        padding: 11px 9px;
-        border: 1px solid #424242;
-        border-radius: 6px;
-    }
-}   
+  &__more-button {
+    font-weight: 400;
+    color: $mainTextColor;
+    background-color: transparent;
+    font-size: 12px;
+    line-height: 15px;
+    padding: 11px 9px;
+    border: 1px solid #424242;
+    border-radius: 6px;
+  }
+}
 
 
 @media screen and (min-width: 1280px) {
-    .movies-card-list {
-        &__content {
-            padding: 70px 70px 26px 70px;
-            gap: 57px 30px;
-            grid-template-columns: repeat(3, 1fr);
-        }
+  .movies-card-list {
+    &__content {
+      padding: 70px 70px 26px 70px;
+      gap: 57px 30px;
+      grid-template-columns: repeat(3, 1fr);
+    }
 
-        &__more-button {
-            min-width: 320px;
-        }
-    }   
-    
+    &__more-button {
+      min-width: 320px;
+    }
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-    .movies-card-list {
-        &__content {
-            padding: 70px 30px 10px 30px;
-            gap: 45px 30px;
-            grid-template-columns: repeat(2, 1fr);
-        }
-    
-        &__more-button {
-            min-width: 320px;
-        }
-    }   
-    
+  .movies-card-list {
+    &__content {
+      padding: 70px 30px 10px 30px;
+      gap: 45px 30px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__more-button {
+      min-width: 320px;
+    }
+  }
 }
 
 @media screen and (max-width: 767px) {
-    .movies-card-list {
-        &__content {
-            padding: 40px 10px 10px 10px;
-            grid-template-columns: 1fr;
-            gap: 36px;
-        }
+  .movies-card-list {
+    &__content {
+      padding: 40px 10px 10px 10px;
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
 
-        &__more-button {
-            min-width: 240px;
-        }
-    }   
-    
+    &__more-button {
+      min-width: 240px;
+    }
+  }
 }

@@ -9,6 +9,7 @@ import { namePattern, passwordPattern } from '../../utils/patterns';
 import Auth from '../../utils/Auth';
 import { useState } from 'react';
 import MessagePopup from '../common/MessagePopup';
+import { Link } from 'react-router-dom';
 
 // interface IRegisterProps {
 //   onSignup():void
@@ -84,7 +85,7 @@ export default function Register(props/*:IRegisterProps*/) {
           </div>
           <button type="submit" className="button auth-form__submit-button" disabled={!isValid || waitingResponse}>{waitingResponse ? 'Регистрация...': 'Зарегистрироваться'}</button>
         </form>
-        <div className="register__tip">Уже зарегистрированы? <a className='register__link' href='/signin'>Войти</a></div>
+        <div className="register__tip">Уже зарегистрированы? <Link className='register__link' to='/signin'>Войти</Link></div>
       </main>
       <MessagePopup popupControlObject={popupControlObject}/>
     </div>

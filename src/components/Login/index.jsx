@@ -8,6 +8,7 @@ import Auth from '../../utils/Auth';
 import './login.scss'
 
 import { ReactComponent as Logo} from '../../images/icons/logo.svg';
+import { Link } from 'react-router-dom';
 
 // interface ILoginProps {
 //   onSignin():void
@@ -70,7 +71,7 @@ export default function Login(props/*:ILoginProps*/) {
           </div>
           <button type="submit" className="button auth-form__submit-button" disabled={!isValid || waitingResponse}>{waitingResponse ? 'Аутентификация...': 'Войти'}</button>
         </form>
-        <div className="login__tip">Ещё не зарегистрированы? <a className='login__link' href='/signup'>Регистрация</a></div>
+        <div className="login__tip">Ещё не зарегистрированы? <Link className='login__link' to='/signup'>Регистрация</Link></div>
       </main>
       <MessagePopup popupControlObject={popupControlObject}/>
     </div>
