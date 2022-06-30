@@ -9,7 +9,7 @@ export default class Auth {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, password, email }),
+        body: JSON.stringify({ name, password, email:email.toLowerCase() }),
         mode: 'cors'
       })
       .then((response) => {
@@ -40,7 +40,7 @@ export default class Auth {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ password, email }),
+        body: JSON.stringify({ password, email:email.toLowerCase() }),
         mode: "cors",
       })
       .then((response) => {

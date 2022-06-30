@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import FormInput from '../common/FormInput';
 import MessagePopup from '../common/MessagePopup';
 import { useFormWithValidation, useMessagePopup } from '../../utils/hooks';
-import { passwordPattern } from '../../utils/patterns';
+import { emailPattern, passwordPattern } from '../../utils/patterns';
 import Auth from '../../utils/Auth';
 
 import './login.scss'
@@ -18,6 +18,13 @@ export default function Login(props/*:ILoginProps*/) {
   const { values, handleChange, errors, isValid} = useFormWithValidation({email: '', password: ''});
   const [waitingResponse, setWaitingResponse] = useState(false);
   const {popupControlObject, openMessagePopup} = useMessagePopup();
+
+  useEffect(()=>{
+    if (localStorage.token) {
+      props.onSignin();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,7 +44,9 @@ export default function Login(props/*:ILoginProps*/) {
   return (
     <div className="login">
       <header className="login__header">
+      <Link to="/">
         <Logo className="login__logo"/>
+      </Link>
         <h1 className="login__title">Добро пожаловать!</h1>
       </header>
       <main className="login__content">
@@ -51,6 +60,7 @@ export default function Login(props/*:ILoginProps*/) {
                 direction='vertical'
                 name="email"
                 value={values.email}
+                pattern={emailPattern}
                 required
               />
               <span className="auth-form__validation-message">{errors.email}</span>

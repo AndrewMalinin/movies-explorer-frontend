@@ -34,13 +34,13 @@ export default function MoviesCard(props/*:IMoviesCardProps*/) {
     }
     return (
         <article className="movies-card">
-            <div className="movies-card__cover-aspect-ratio-box">
+            <a className="movies-card__cover-aspect-ratio-box" href={props.data.trailerLink}>
                 <img
                     src={props.data.image}
                     alt={props.data.nameRU}
                     className="movies-card__cover"
                 />
-            </div>
+            </a>
 
             <div className="movies-card__buttons-container">
                 {props.deletable ?

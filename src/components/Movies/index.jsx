@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useContext } from 'react'
 import Header from '../common/Header'
 import Footer from '../common/Footer'
 import SearchForm from '../common/SearchForm'
@@ -12,10 +12,12 @@ import './movies.scss'
 import { api } from '../../utils/MainApi'
 import MessagePopup from '../common/MessagePopup'
 import { useMessagePopup } from '../../utils/hooks'
+import { CurrentUserContext } from '../../contexts/CurrentUserContext'
 
 export default function Movies() {
   const moviesModelRef = useRef(new MoviesModel());
   const [movies, setMovies] = useState([]);
+  const [context] = useContext(CurrentUserContext);
   const [isAwaiting, setAwaiting] = useState(false);
   const [message, setMessage] = useState('Чтобы найти интересующие вас фильмы, воспользуйтесь формой поиска выше.');
   const [onlyShortMovies, shortMoviesSwitch] = useState(localStorage.getItem('movies_onlyShortMovies') === 'true');
@@ -72,10 +74,11 @@ export default function Movies() {
     return new Promise((resolve, reject)=>{
       api.getMovies()
       .then((savedMovies)=>{
-        moviesModelRef.current.setSavedMoviesIds(savedMovies.map((movie)=>movie.movieId));
+        moviesModelRef.current.setSavedMovies(savedMovies, context._id);
         resolve();
       })
-      .catch(()=>{
+      .catch((e)=>{
+        console.log(e)
         reject();
       })
     })
@@ -84,7 +87,7 @@ export default function Movies() {
   const handleSaveMovie = (movieId) => {
     api.sendSaveMovieRequest(MoviesModel.convertMovieToMainApiStructure(moviesModelRef.current.getMovieById(movieId)))
     .then((savedMovie)=>{
-      moviesModelRef.current.setSavedMoviesIds([savedMovie.movieId]);
+      moviesModelRef.current.setSavedMovies([savedMovie], context._id);
       updateMovies();
     })
     .catch(()=>{

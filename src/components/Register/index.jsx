@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import FormInput from '../common/FormInput';
 
 import { ReactComponent as Logo} from '../../images/icons/logo.svg';
 
 import './register.scss'
 import { useFormWithValidation, useMessagePopup } from '../../utils/hooks';
-import { namePattern, passwordPattern } from '../../utils/patterns';
+import { emailPattern, namePattern, passwordPattern } from '../../utils/patterns';
 import Auth from '../../utils/Auth';
 import { useState } from 'react';
 import MessagePopup from '../common/MessagePopup';
@@ -19,6 +19,13 @@ export default function Register(props/*:IRegisterProps*/) {
   const { values, handleChange, errors, isValid} = useFormWithValidation({name: '', email: '', password: ''});
   const [waitingResponse, setWaitingResponse] = useState(false);
   const {popupControlObject, openMessagePopup} = useMessagePopup();
+
+  useEffect(()=>{
+    if (localStorage.token) {
+      props.onSignup();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,7 +45,9 @@ export default function Register(props/*:IRegisterProps*/) {
   return (
     <div className="register">
       <header className="register__header">
-        <Logo className="register__logo"/>
+        <Link to="/">
+          <Logo className="register__logo"/>
+        </Link>
         <h1 className="register__title">Добро пожаловать!</h1>
       </header>
       <main className="register__content">
@@ -65,6 +74,7 @@ export default function Register(props/*:IRegisterProps*/) {
                 direction='vertical'
                 name="email"
                 value={values.email}
+                pattern={emailPattern}
                 required
               />
               <span className="auth-form__validation-message">{errors.email}</span>

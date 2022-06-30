@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import Header from '../common/Header'
 import Footer from '../common/Footer'
 import SearchForm from '../common/SearchForm'
@@ -11,39 +11,30 @@ import Preloader from '../common/Preloader/Preloader'
 import { api } from '../../utils/MainApi'
 import MoviesModel from '../../utils/models'
 import { useMessagePopup } from '../../utils/hooks'
+import { CurrentUserContext } from '../../contexts/CurrentUserContext'
 
 export default function SavedMovies() {
   const moviesModelRef = useRef(new MoviesModel());
   const [movies, setMovies] = useState([]);
+  const [context] = useContext(CurrentUserContext);
   const [isAwaiting, setAwaiting] = useState(false);
   const [message, setMessage] = useState('Чтобы найти интересующие вас фильмы, воспользуйтесь формой поиска выше.');
-  const [onlyShortMovies, shortMoviesSwitch] = useState(localStorage.getItem('saved-movies_onlyShortMovies') === 'true');
-  const [queryString, setQueryString] = useState(localStorage.getItem('saved-movies_queryString') || '');
+  const [onlyShortMovies, shortMoviesSwitch] = useState(false);
+  const [queryString, setQueryString] = useState('');
   const {popupControlObject, openMessagePopup} = useMessagePopup();
 
   useEffect(()=>{
-    localStorage.setItem('saved-movies_onlyShortMovies', onlyShortMovies)
-  }, [onlyShortMovies])
-
-  useEffect(()=>{
-    localStorage.setItem('saved-movies_queryString', queryString)
-  }, [queryString])
-
-
-  useEffect(()=>{
-    if(queryString !== '') {
-      if (moviesModelRef.current.isEmpty()) {
-        fetchMovies()
-        .then(()=>{
-          updateMovies();
-        })
-      }
-      else {
+    if (moviesModelRef.current.isEmpty()) {
+      fetchMovies()
+      .then(()=>{
         updateMovies();
-      }
+      })
+    }
+    else {
+      updateMovies();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[queryString, onlyShortMovies])
+  },[queryString, onlyShortMovies, context])
 
   const updateMovies=()=> {
     setMovies(moviesModelRef.current.getFiltredArray(queryString, onlyShortMovies));
@@ -54,7 +45,7 @@ export default function SavedMovies() {
     setAwaiting(true);
     return api.getMovies()
     .then(async (movies)=>{
-      moviesModelRef.current.updateFromMainApiResponse(movies);
+      moviesModelRef.current.updateFromMainApiResponse(movies.filter((movie)=>movie.owner === context._id));
       return Promise.resolve();
     })
     .catch(()=>{

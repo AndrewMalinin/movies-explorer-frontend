@@ -25,8 +25,7 @@ export default function App() {
 
   const handleAppStarted = () => {
     tokenCheck()
-    .then(()=>{
-    })
+    .then(()=>{})
     .catch(()=>{})
   }
 
@@ -43,14 +42,17 @@ export default function App() {
             resolve();
           }
           else {
+            setIsLogged(false);
             reject();
           }
         })
         .catch(()=>{
+          setIsLogged(false);
           reject();
         })
       }
       else {
+        setIsLogged(false);
         reject();
       }
     })
@@ -58,23 +60,32 @@ export default function App() {
 
 
   const handleSignup = (email, password) => {
-    Auth.authorize(email, password)
-    .then(()=>{
+    if (localStorage.token) {
       handleSignin();
-    })
-    .catch((err/*:NetworkError*/)=>{
-      return Promise.reject(err)
-    })
+    }
+    else {
+      Auth.authorize(email, password)
+      .then(()=>{
+        handleSignin();
+      })
+      .catch((err/*:NetworkError*/)=>{
+        return Promise.reject(err)
+      })
+    }
   }
 
   const handleSignin = () => {
-    setIsLogged(true);
-    navigate('/movies');
+    return tokenCheck()
+    .then(()=>{
+      navigate('/movies');
+    })
   }
 
   const handleLogout = () => {
     localStorage.removeItem('token');
     setIsLogged(false);
+    window.localStorage.clear();
+    setCurrentUser(defaultUserInfo);
     navigate('/')
   }
 
@@ -104,11 +115,11 @@ export default function App() {
           }/>
 
           <Route path="/signup" element={
-              <Register onSignup={handleSignup}/>
+              <Register onSignup={handleSignup} isLogged={isLogged}/>
           }/>
 
           <Route path="/signin" element={
-              <Login onSignin={handleSignin}/>
+              <Login onSignin={handleSignin} isLogged={isLogged}/>
           }/>
 
           <Route path="*" element={

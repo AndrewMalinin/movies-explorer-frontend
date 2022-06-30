@@ -46,6 +46,9 @@ export class Api {
           }
         }
       })
+      .catch((err)=>{
+        return Promise.reject(new NetworkError(err.statusCode || 500, err.message || 'Сервер не отвечает, либо нет связи с сервером.'));
+      })
   }
 
   getUserInfo() {
@@ -59,7 +62,7 @@ export class Api {
   sendEditProfileRequest({name, email}) {
     return this._sendRequest('/users/me', 'PATCH', {
         'name': name,
-        'email': email
+        'email': email.toLowerCase()
       });
   }
 

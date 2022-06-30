@@ -1,3 +1,4 @@
+import { SHORTFILM_MAX_DURATION_MINUTES } from "./constants";
 import { isValidHttpUrl } from "./validators";
 
 export default class MoviesModel {
@@ -34,10 +35,11 @@ export default class MoviesModel {
   }
 
   getFiltredArray(filterStr, onlyShortMovies = false) {
+    if (filterStr === '' && !onlyShortMovies) return this._moviesArr;
     return this._moviesArr.filter((movie)=>{
-      if (-1 !== movie.nameRU.toLowerCase().indexOf(filterStr.toLowerCase())) {
+      if (filterStr === '' || -1 !== movie.nameRU.toLowerCase().indexOf(filterStr.toLowerCase())) {
         if (onlyShortMovies) {
-          return movie.duration <= 40;
+          return movie.duration <= SHORTFILM_MAX_DURATION_MINUTES;
         }
         return true;
       }
@@ -45,7 +47,13 @@ export default class MoviesModel {
     });
   }
 
-  setSavedMoviesIds(ids) {
+  setSavedMovies(movies, userId) {
+    const ids = [];
+    movies.forEach((movie)=>{
+      if (movie.owner === userId) {
+        ids.push(movie.movieId);
+      }
+    })
     this._moviesArr.forEach((movie)=>{
       if (-1 !== ids.indexOf(movie.movieId)) {
         movie.isSaved = true;

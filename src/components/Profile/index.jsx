@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { CurrentUserContext } from '../../contexts/CurrentUserContext'
 import { useFormWithValidation, useMessagePopup } from '../../utils/hooks'
 import { api } from '../../utils/MainApi'
-import { namePattern } from '../../utils/patterns'
+import { emailPattern, namePattern } from '../../utils/patterns'
 import FormInput from '../common/FormInput'
 import Header from '../common/Header'
 import MessagePopup from '../common/MessagePopup'
@@ -74,6 +74,7 @@ export default function Profile(props/*:IProfileProps*/) {
               direction='horizontal'
               name="email"
               value={values.email}
+              pattern={emailPattern}
               required
             />
             <span className="auth-form__validation-message">{errors.email}</span>

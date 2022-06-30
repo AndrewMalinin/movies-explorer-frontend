@@ -4,6 +4,15 @@ import { useLocation } from "react-router-dom";
 
 import './moviesCardList.scss';
 import { useMemo } from 'react';
+import { DEFAULT_DESKTOP_MOVIES_COUNT,
+         DEFAULT_MOBILE_MOVIES_COUNT,
+         DEFAULT_TABLET_MOVIES_COUNT,
+         DESKTOP_RES_JUMP_POINT,
+         MORE_DESKTOP_MOVIES_LOAD,
+         MORE_MOBILE_MOVIES_LOAD,
+         MORE_TABLET_MOVIES_LOAD,
+         TABLET_RES_JUMP_POINT
+        } from '../../../utils/constants';
 
 // interface IMoviesCardListProps {
 //   movies: IMovie[]
@@ -27,14 +36,14 @@ export default function MoviesCardList(props/*:IMoviesCardListProps*/) {
 
   useEffect(()=>{
     if (location.pathname === '/movies') {
-      if (clientWidth >= 1280) {
-        setDisplayedCards(props.movies.slice(0,12))
+      if (clientWidth >= DESKTOP_RES_JUMP_POINT) {
+        setDisplayedCards(props.movies.slice(0, DEFAULT_DESKTOP_MOVIES_COUNT))
       }
-      else if (clientWidth < 1280 && clientWidth >= 768) {
-        setDisplayedCards(props.movies.slice(0, 8))
+      else if (clientWidth < DESKTOP_RES_JUMP_POINT && clientWidth >= TABLET_RES_JUMP_POINT) {
+        setDisplayedCards(props.movies.slice(0, DEFAULT_TABLET_MOVIES_COUNT))
       }
-      else if (clientWidth <= 767) {
-        setDisplayedCards(props.movies.slice(0, 5))
+      else if (clientWidth < TABLET_RES_JUMP_POINT) {
+        setDisplayedCards(props.movies.slice(0, DEFAULT_MOBILE_MOVIES_COUNT))
       }
     }
     else {
@@ -50,24 +59,24 @@ export default function MoviesCardList(props/*:IMoviesCardListProps*/) {
 
   const handleLoadMoreCards = () => {
     let newCountOfCards = countOfDisplayedCards;
-    if (clientWidth >= 1280) {
-      if (countOfDisplayedCards % 3 > 0) {
-        newCountOfCards += 3 - countOfDisplayedCards % 3
+    if (clientWidth >= DESKTOP_RES_JUMP_POINT) {
+      if (countOfDisplayedCards % MORE_DESKTOP_MOVIES_LOAD > 0) {
+        newCountOfCards += MORE_DESKTOP_MOVIES_LOAD - countOfDisplayedCards % MORE_DESKTOP_MOVIES_LOAD
       }
       else {
-        newCountOfCards +=3;
+        newCountOfCards += MORE_DESKTOP_MOVIES_LOAD;
       }
     }
-    else if (clientWidth < 1280 && clientWidth >= 768) {
-      if (countOfDisplayedCards % 2 > 0) {
-        newCountOfCards += 1
+    else if (clientWidth < DESKTOP_RES_JUMP_POINT && clientWidth >= TABLET_RES_JUMP_POINT) {
+      if (countOfDisplayedCards % MORE_TABLET_MOVIES_LOAD > 0) {
+        newCountOfCards += MORE_TABLET_MOVIES_LOAD - 1
       }
       else {
-        newCountOfCards +=2;
+        newCountOfCards += MORE_TABLET_MOVIES_LOAD;
       }
     }
     else {
-      newCountOfCards +=2;
+      newCountOfCards += MORE_MOBILE_MOVIES_LOAD;
     }
     setDisplayedCards(props.movies.slice(0, newCountOfCards))
   }
