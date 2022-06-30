@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import SideMenu from './SideMenu';
 
 import { ReactComponent as BurgerMenuIcon } from '../../../images/icons/burger-menu.svg';
@@ -27,28 +27,28 @@ export default function Navigation(props) {
         return (
             <div className='navigation__links'>
                 <div className="navigation__page-links">
-                    {isMinifiedView && <a href="/" className='navigation__link'>Главная</a>}
-                    <a 
-                        href="/movies" 
+                    {isMinifiedView && <Link to="/" className='navigation__link'>Главная</Link>}
+                    <Link
+                        to="/movies"
                         className={`navigation__link ${location.pathname === '/movies' ? 'navigation__link_active':''}`}
                     >
                         Фильмы
-                    </a>
-                    <a 
-                        href="/saved-movies" 
+                    </Link>
+                    <Link
+                        to="/saved-movies"
                         className={`navigation__link ${location.pathname === '/saved-movies' ? 'navigation__link_active':''}`}
                     >
                         Сохранённые фильмы
-                    </a>
+                    </Link>
                 </div>
-                <a href="/profile" className="navigation__link navigation__link_style_rounded">Аккаунт</a>
+                <Link to="/profile" className="navigation__link navigation__link_style_rounded">Аккаунт</Link>
             </div>
         )
     }
 
     return (
         <nav className='navigation'>
-            {isMinifiedView ? 
+            {isMinifiedView ?
             <>
             <button className="icon-button navigation__toggle-side-menu-button" onClick={()=>{setSideMenuOpenState(true)}}>
                 <BurgerMenuIcon className='icon-button__icon'/>
