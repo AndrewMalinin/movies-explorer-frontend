@@ -1,4 +1,4 @@
-export const mainApiURL =  'https://api.movies-explorer98.nomoredomains.xyz/';
+export const mainApiURL =  'https://api.movies-explorer98.nomoredomains.xyz';
 export const moviesApiURL = 'https://api.nomoreparties.co';
 
 export const DESKTOP_RES_JUMP_POINT = 1280;
