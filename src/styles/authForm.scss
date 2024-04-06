@@ -41,6 +41,14 @@
         width: 100%;
         border-radius: 3px;
         background-color: $secondAccentColor;
+        transition: background 300ms;
+        &:disabled {
+            background-color: #808080;
+            &:hover {
+                cursor: default;
+                opacity: 1;
+            }
+        }
     }
 
     @media screen and (min-width: 1280px) {
